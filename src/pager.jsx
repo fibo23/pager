@@ -178,7 +178,7 @@ class Pager extends React.Component {
 					key={idx}
 					index={idx}
 					isActive={isActive}
-					className="btn-numbered-page"
+					className="page-item"
 					onClick={onClick}
 				>{num}</Page>
 			);
@@ -197,21 +197,14 @@ class Pager extends React.Component {
 			<nav>
 				<ul className={className}>
 					<Page
-						className="btn-first-page"
+						className="page-item"
 						key="btn-first-page"
 						isDisabled={this.isPrevDisabled()}
 						onClick={this.handleFirstPage}
 					>{titles('first')}</Page>
 
 					<Page
-						className="btn-prev-page"
-						key="btn-prev-page"
-						isDisabled={this.isPrevDisabled()}
-						onClick={this.handlePreviousPage}
-					>{titles('prev')}</Page>
-
-					<Page
-						className="btn-prev-more"
+						className="page-item"
 						key="btn-prev-more"
 						isHidden={this.isPrevMoreHidden()}
 						onClick={this.handleMorePrevPages}
@@ -220,21 +213,21 @@ class Pager extends React.Component {
 					{this.renderPages(this.visibleRange())}
 
 					<Page
-						className="btn-next-more"
+						className="page-item"
 						key="btn-next-more"
 						isHidden={this.isNextMoreHidden()}
 						onClick={this.handleMoreNextPages}
 					>{titles('nextSet')}</Page>
 
 					<Page
-						className="btn-next-page"
+						className="page-item"
 						key="btn-next-page"
 						isDisabled={this.isNextDisabled()}
 						onClick={this.handleNextPage}
 					>{titles('next')}</Page>
 
 					<Page
-						className="btn-last-page"
+						className="page-item"
 						key="btn-last-page"
 						isDisabled={this.isNextDisabled()}
 						onClick={this.handleLastPage}
@@ -266,7 +259,7 @@ const Page = (props) => {
 
 	return (
 		<li key={props.index} className={fullCss}>
-			<a onClick={props.onClick}>{props.children}</a>
+			<button className="page-link" onClick={props.onClick}>{props.children}</button>
 		</li>
 	);
 };
